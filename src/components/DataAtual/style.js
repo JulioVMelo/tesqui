@@ -8,10 +8,25 @@ export const Container = styled.div`
   padding: 0px 20px;
   position: absolute;
   right: 0px;
+  color: #00b100;
+
+  .dateMain  {
+    font-weight:400;
+    font-size: 45px;
+    margin-right: 10px;
+  }
   
-  span  {
-    color: #00b100;
-    font-weight:900;
-    font-size: 25px;
+  .dateComplement {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+    .dayName {
+      font-size: 18px;
+      font-weight:400;
+    }
+    .monthAndYear {
+      font-size: 15px;
+    }
   }
 `;

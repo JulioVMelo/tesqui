@@ -8,7 +8,7 @@ class Main extends Component {
     return (
       <Fragment>
         <HeaderUi>
-          <Logo>Tesqui - globoesporte</Logo>
+          <Logo>Tesqui</Logo>
           <DataAtual />
         </HeaderUi>
         <InputTask />
