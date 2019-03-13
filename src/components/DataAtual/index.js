@@ -1,25 +1,42 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import 'moment/locale/pt-br';
-
 import { Container } from './style';
 
 class DataAtual extends Component {
-  
-  componentDidMount(){
-    moment.locale('pt-BR');
+    
+  dayNumber = moment().format("D");
+  dayName = moment().format("d");
+  monthName = moment().format("MMM");
+  yearNumber = moment().format("YYYY");
+
+  constructor(props){
+    super(props);
+    
+    moment.updateLocale('pt-BR', {
+      weekdays : [
+          "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"
+      ],
+    });
   }
   
-  date = moment();
-  format = "DD [de] MMMM";
-  dataAtual = moment(this.date).format(this.format);
-    
+  componentWillMount(){
+    this.dayName = moment.weekdays(this.dayName);
+  }
+
   render() {
     return (
       <Container>
-        <span>
-          {this.dataAtual}
+        <span className="dateMain">
+          {this.dayNumber}
         </span>
+        <div className="dateComplement">
+          <span className="dayName"> {this.dayName} </span>
+          <div className="monthAndYear">
+            <span> {this.monthName} </span>
+            <span> {this.yearNumber} </span>
+          </div>
+        </div>
       </Container>
     );
   }

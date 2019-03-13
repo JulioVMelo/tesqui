@@ -5,6 +5,7 @@ export const Container = styled.section`
   display: flex;
   justify-content: center;
   margin-top: 100px;
+  
 input {
   width: 500px;
   background-color: transparent;
