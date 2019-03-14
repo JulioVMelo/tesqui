@@ -5,36 +5,45 @@ import { Container } from './style';
 
 class DataAtual extends Component {
     
-  dayNumber = moment().format("D");
-  dayName = moment().format("d");
-  monthName = moment().format("MMM");
-  yearNumber = moment().format("YYYY");
-
   constructor(props){
     super(props);
     
-    moment.updateLocale('pt-BR', {
+    moment.updateLocale('pt-br', {
       weekdays : [
-          "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"
+          "Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"
       ],
     });
+
+    this.state = {
+      dataComplete: moment(),
+      dayNumber: "",
+      dayName: "",
+      monthName: "",
+      yearNumber: ""
+    };
+
   }
-  
-  componentWillMount(){
-    this.dayName = moment.weekdays(this.dayName);
+
+  componentDidMount() {
+    this.setState({
+      dayNumber: this.state.dataComplete.format('D'),
+      dayName: this.state.dataComplete.format("dddd"),
+      monthName: this.state.dataComplete.format("MMM"),
+      yearNumber: this.state.dataComplete.format("YYYY")
+    })
   }
 
   render() {
     return (
       <Container>
         <span className="dateMain">
-          {this.dayNumber}
+          {this.state.dayNumber}
         </span>
         <div className="dateComplement">
-          <span className="dayName"> {this.dayName} </span>
+          <span className="dayName"> {this.state.dayName} </span>
           <div className="monthAndYear">
-            <span> {this.monthName} </span>
-            <span> {this.yearNumber} </span>
+            <span> {this.state.monthName} </span>
+            <span> {this.state.yearNumber} </span>
           </div>
         </div>
       </Container>
