@@ -4,7 +4,7 @@ import 'moment/locale/pt-br';
 import { Container } from './style';
 
 class DataAtual extends Component {
-    
+  
   constructor(props){
     super(props);
     
@@ -19,7 +19,7 @@ class DataAtual extends Component {
       dayNumber: "",
       dayName: "",
       monthName: "",
-      yearNumber: ""
+      yearNumber: "",
     };
 
   }

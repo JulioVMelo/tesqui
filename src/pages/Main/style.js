@@ -8,10 +8,18 @@ export const HeaderUi = styled.header`
   width: 100%;
   position: relative;
   height: 80px;
+
+  @media screen and (max-width:600px){
+    justify-content: flex-start;
+  }
 `;
 
 export const Logo = styled.span` 
   color: #00b100;
   font-size: 30px;
   font-family: 'Open Sans', sans-serif;
+  
+  @media screen and (max-width:600px){
+    padding-left: 20px;
+  }
 `;

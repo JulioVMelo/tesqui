@@ -3,18 +3,35 @@ import {Container} from './style';
 
 export default class InputTask extends Component {
   
-  state = {
-    title: "",
+  constructor(props){
+    super(props);
+
+    this.state = {
+      taskName: ''
+    };
   }
-  
-  handleInputChange = (e) => {
-    this.setState({ title: e.target.title }); 
+
+  handleInputChange = (event) => {
+    this.setState({
+      taskName: event.target.value
+    })
   };
-  
+
+  handleInputSend = (event) => {
+    if( event.keyCode === 13){
+    }
+  };
+
   render() {
     return (
       <Container>
-        <input type="text" placeholder="Escreva aqui uma tarefa..." onChange={this.handleInputChange} value={this.setState.title}/>
+        <input 
+          type="text" 
+          placeholder="Escreva aqui uma tarefa..." 
+          value={this.state.taskName}
+          onChange={this.handleInputChange} 
+          onKeyDown={this.handleInputSend}
+        />
       </Container>
     );
   }
