@@ -4,7 +4,7 @@ export const HeaderUi = styled.header`
   display: flex;
   align-items: center;
   justify-content:center;
-  background-color: #009200;
+  background-color: #15243A;
   width: 100%;
   position: relative;
   height: 80px;
@@ -15,7 +15,7 @@ export const HeaderUi = styled.header`
 `;
 
 export const Logo = styled.span` 
-  color: #00b100;
+  color: #FBD54A;
   font-size: 30px;
   font-family: 'Open Sans', sans-serif;
   

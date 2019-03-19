@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import {Container} from './style';
-
-export default class InputTask extends Component {
+class InputTask extends Component {
   
   constructor(props){
     super(props);
 
     this.state = {
-      taskName: ''
+      taskName: '',
+      listTaskName: []
     };
   }
 
@@ -19,6 +19,7 @@ export default class InputTask extends Component {
 
   handleInputSend = (event) => {
     if( event.keyCode === 13){
+      this.setState({listTaskName: this.state.listTaskName.concat(this.state.taskName)});
     }
   };
 
@@ -36,3 +37,6 @@ export default class InputTask extends Component {
     );
   }
 };
+
+
+export default InputTask;
