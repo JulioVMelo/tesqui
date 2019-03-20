@@ -1,20 +1,20 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Container } from './style';
+import * as TodoActions from '../../store/actions/todos';
+import { bindActionCreators } from 'redux';
 
-const ListTodos = ({todos, addTodo}) => {
-  return(
-    <Fragment>
+const ListTodos = ({todos, removeTodo}) => (
+    <Container>
       <ul>
-        { todos.map( todo => <li key={todo.id}>{todo.text}</li> ) }
+        { todos.map( todo => <li key={todo.id}>{todo.text} <span onClick={() => removeTodo(todo.id)}>&times;</span></li> ) }
       </ul>
-      <button onClick={() => addTodo('novo Todo')} >novo todo</button>
-    </Fragment>
-  );
-};
+    </Container>
+);
 
 ListTodos.propTypes = {
-  addTodo: PropTypes.func.isRequired,
+  removeTodo: PropTypes.func.isRequired,
   todos: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     text: PropTypes.string,
@@ -25,8 +25,6 @@ const mapStateToProps = state => ({
   todos: state.todos,
 });
 
-const mapDispatchToProps = dispatch => ({
-  addTodo: text => dispatch({ type: 'ADD_TODO', payload: { text } }),
-});
+const mapDispatchToProps = dispatch => bindActionCreators(TodoActions, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListTodos);

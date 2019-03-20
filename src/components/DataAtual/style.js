@@ -3,12 +3,12 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   align-items:center; 
-  background-color: #007b00;
+  background-color: #fbd54a;
   height: 100%;
   padding: 0px 20px;
   position: absolute;
   right: 0px;
-  color: #00b100;
+  color: #15243A;
 
   .dateMain  {
     font-weight:400;

@@ -1,42 +1,44 @@
 import React, { Component } from 'react';
 import {Container} from './style';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as TodoActions from '../../store/actions/todos';
+
 class InputTask extends Component {
   
-  constructor(props){
+  constructor(props) {
     super(props);
-
     this.state = {
       taskName: '',
-      listTaskName: []
     };
   }
 
-  handleInputChange = (event) => {
-    this.setState({
-      taskName: event.target.value
-    })
+  handleSend = (e) => {
+    e.preventDefault();
+    this.props.addTodo(this.state.taskName);
+    this.setState( {taskName: ''});
   };
 
-  handleInputSend = (event) => {
-    if( event.keyCode === 13){
-      this.setState({listTaskName: this.state.listTaskName.concat(this.state.taskName)});
-    }
-  };
-
-  render() {
-    return (
+  render(){
+    return(
       <Container>
-        <input 
-          type="text" 
-          placeholder="Escreva aqui uma tarefa..." 
-          value={this.state.taskName}
-          onChange={this.handleInputChange} 
-          onKeyDown={this.handleInputSend}
-        />
+        <form onSubmit={this.handleSend}>
+          <input 
+              type="text" 
+              placeholder="Escreva aqui uma tarefa..." 
+              value={this.state.taskName}
+              onChange={e => this.setState({taskName: e.target.value})}
+          />
+        </form>
       </Container>
     );
-  }
-};
+  };
+}
 
+const mapStateToProps = state => ({
+  todos: state.todos,
+});
 
-export default InputTask;
+const mapDispatchToProps = dispatch => bindActionCreators(TodoActions, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(InputTask);
