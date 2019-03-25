@@ -10,7 +10,7 @@ class Main extends Component {
     return (
       <Fragment>
         <HeaderUi>
-          <img src={LogoUnipe} alt="logomarca"/>
+          <img src={LogoUnipe} alt="logomarcaa"/>
           <DataAtual />
         </HeaderUi>
         <InputTask />
