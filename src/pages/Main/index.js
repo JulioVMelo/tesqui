@@ -1,15 +1,16 @@
 import React, { Component, Fragment } from 'react';
-import {HeaderUi, Logo} from './style';
+import {HeaderUi} from './style';
 import DataAtual from '../../components/DataAtual';
 import InputTask from '../../components/InputTask';
 import ListTodos from '../../components/ListTodos/';
+import LogoUnipe from '../../assets/img/logo_unipe_cruzeiro_02.svg';
 
 class Main extends Component {
   render() {
     return (
       <Fragment>
         <HeaderUi>
-          <Logo>Tesqui</Logo>
+          <img src={LogoUnipe} alt="logomarca"/>
           <DataAtual />
         </HeaderUi>
         <InputTask />

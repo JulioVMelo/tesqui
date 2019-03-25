@@ -9,17 +9,15 @@ export const HeaderUi = styled.header`
   position: relative;
   height: 80px;
 
+  img {
+    width: 140px;
+
+    @media screen and (max-width:600px){
+      padding-left: 20px;
+    }
+  }
+
   @media screen and (max-width:600px){
     justify-content: flex-start;
-  }
-`;
-
-export const Logo = styled.span` 
-  color: #FBD54A;
-  font-size: 30px;
-  font-family: 'Open Sans', sans-serif;
-  
-  @media screen and (max-width:600px){
-    padding-left: 20px;
   }
 `;
