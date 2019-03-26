@@ -1,21 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Container, ListItem } from './style';
+import { Container, ListItem, BtnRemove } from './style';
 import * as TodoActions from '../../store/actions/todos';
 import { bindActionCreators } from 'redux';
 import btnRemove from '../../assets/img/delete.svg';
 
-const ListTodos = ( {todos,removeTodo} ) => (
+const ListTodos = ( {todos,removeTodo, alterState} ) => (
   <Container>
     <ul>
       { todos.map( todo => 
-        <ListItem key={ todo.id }> 
+        <ListItem className={todo.completed ? 'completed' : ''} key={ todo.id }> 
           <div>
             <span> { todo.text } </span>
-            <input type="checkbox" />
+            <input type="checkbox" onChange={() => alterState(todo.id, todo.completed, todo.text)} />
           </div>
-          <img src={ btnRemove } alt="excluir" onClick={() => removeTodo(todo.id)} />
+          <BtnRemove src={ btnRemove } alt="excluir" onClick={() => removeTodo(todo.id)} />
         </ListItem> 
       )}
     </ul>
@@ -23,10 +23,12 @@ const ListTodos = ( {todos,removeTodo} ) => (
 );
 
 ListTodos.propTypes = {
+  alterState: PropTypes.func.isRequired,
   removeTodo: PropTypes.func.isRequired,
   todos: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     text: PropTypes.string,
+    completed: PropTypes.bool
   })).isRequired,
 };
 

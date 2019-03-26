@@ -6,6 +6,16 @@ export const Container = styled.section`
   background-color: #fff;
   padding: 0px 0px;
   box-shadow: 0px 0px 10px #ddd;
+
+  .completed {
+    text-decoration: line-through;
+    background-color: #f8f8f8;
+    color: #62e0d0;
+    
+    div span {
+      color: #62e0d0;
+    }
+  }
 `; 
 
 export const ListItem = styled.li`
@@ -14,9 +24,12 @@ export const ListItem = styled.li`
   align-items: center;
   height: 90px;
   padding: 0px 20px 0px 30px;
+  position: relative;
 
   &:hover {
-    background-color: #f8f8f8;
+    img {
+      display: flex;
+    }
   }
 
   div {
@@ -59,9 +72,12 @@ export const ListItem = styled.li`
     }
 
   }
+`;
 
-  img {
-    width: 18px;
-    cursor: pointer;
-  }
+export const BtnRemove = styled.img`
+  width: 18px;
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  display: none;
 `;

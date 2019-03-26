@@ -2,7 +2,16 @@ export const addTodo = text => ({
   type: 'ADD_TODO',
   payload: { 
     text,
-    done: false,
+    completed: false,
+  }
+});
+
+export const alterState = (id, completed, text) => ({
+  type: 'ALTER_STATE',
+  payload: {
+    id: id,
+    completed,
+    text,
   }
 });
 
