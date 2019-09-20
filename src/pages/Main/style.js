@@ -1,10 +1,10 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const HeaderUi = styled.header`
   display: flex;
   align-items: center;
-  justify-content:center;
-  background-color: #15243A;
+  justify-content: center;
+  background-color: #100f14;
   width: 100%;
   position: relative;
   height: 80px;
@@ -12,12 +12,17 @@ export const HeaderUi = styled.header`
   img {
     width: 140px;
 
-    @media screen and (max-width:600px){
+    @media screen and (max-width: 600px) {
       padding-left: 20px;
     }
   }
 
-  @media screen and (max-width:600px){
+  h3 {
+    color: #fff;
+    font-size: 30px;
+  }
+
+  @media screen and (max-width: 600px) {
     justify-content: flex-start;
   }
 `;

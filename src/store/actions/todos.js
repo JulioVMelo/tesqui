@@ -1,7 +1,7 @@
-export const addTodo = text => ({
+export const addTodo = state => ({
   type: 'ADD_TODO',
   payload: { 
-    text,
+    text: state.taskName,
     completed: false,
   }
 });

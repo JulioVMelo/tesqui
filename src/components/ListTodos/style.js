@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.section`
   width: 450px;
@@ -10,13 +10,13 @@ export const Container = styled.section`
   .completed {
     text-decoration: line-through;
     background-color: #f8f8f8;
-    color: #62e0d0;
-    
+    color: #7059c1;
+
     div span {
-      color: #62e0d0;
+      color: #7059c1;
     }
   }
-`; 
+`;
 
 export const ListItem = styled.li`
   display: flex;
@@ -44,7 +44,7 @@ export const ListItem = styled.li`
       color: #373738;
     }
 
-    input[type='checkbox']{
+    input[type="checkbox"] {
       width: 100px;
       -webkit-appearance: none;
       -moz-appearance: none;
@@ -67,10 +67,9 @@ export const ListItem = styled.li`
       }
 
       &:checked {
-        background: #40e0d0;
+        background: #7059c1;
       }
     }
-
   }
 `;
 

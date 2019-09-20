@@ -10,12 +10,13 @@ class InputTask extends Component {
     super(props);
     this.state = {
       taskName: '',
-    };
+      completed: false,
+    };    
   }
 
   handleSend = (e) => {
     e.preventDefault();
-    this.props.addTodo(this.state.taskName);
+    this.props.addTodo(this.state);
     this.setState( {taskName: ''});
   };
 
