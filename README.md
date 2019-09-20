@@ -1,1 +1,1 @@
-https://juliovmelo.github.io/task-app/
+https://task-minimal.netlify.com
